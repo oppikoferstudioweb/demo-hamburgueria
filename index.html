@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bull & Bun | Craft Burgers & Street Food</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            base: '#fbf9f5',       /* Creme suave / Papel Kraft */
+                            surface: '#f3eee5',    /* Bege de suporte */
+                            dark: '#1c1917',       /* Preto carvão elegante */
+                            terracota: '#c2410c',  /* Laranja terracota */
+                            mustard: '#d97706',    /* Mostarda Dijon */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f3eee5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d6cebf;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c2410c;
+        }
+    </style>
+</head>
+<body class="bg-brand-base text-brand-dark font-sans antialiased selection:bg-brand-mustard selection:text-white pb-32">
+
+    <!-- NAVBAR FLUTUANTE EM CÁPSULA (FLOATING PILL) -->
+    <header class="fixed top-4 left-0 w-full z-40 px-4">
+        <nav class="max-w-4xl mx-auto bg-white/90 backdrop-blur-md border border-stone-200/80 px-6 py-3.5 rounded-full shadow-lg shadow-stone-900/5 flex items-center justify-between">
+            <!-- LOGO EDITORIAL -->
+            <a href="#" class="flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-full bg-brand-terracota text-white flex items-center justify-center font-black text-sm">
+                    B
+                </span>
+                <span class="text-lg font-black tracking-tight text-stone-900 uppercase">
+                    Bull <span class="text-brand-terracota">&</span> Bun
+                </span>
+            </a>
+
+            <!-- NAVEGAÇÃO -->
+            <div class="hidden sm:flex items-center gap-6 text-xs uppercase tracking-wider font-bold text-stone-600">
+                <a href="#cardapio" class="hover:text-brand-terracota transition">Cardápio</a>
+                <a href="#origem" class="hover:text-brand-terracota transition">Sobre Nós</a>
+                <a href="#retirada" class="hover:text-brand-terracota transition">Local</a>
+            </div>
+
+            <!-- BOTÃO DIRETO -->
+            <a href="#cardapio" class="bg-stone-900 hover:bg-brand-terracota text-white font-bold px-4 py-2 rounded-full text-xs transition duration-200">
+                Pedir Agora
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION DIVIDIDA (2 COLUNAS) -->
+    <section class="pt-32 pb-16 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Coluna de Texto (Esquerda) -->
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-surface rounded-full text-xs font-bold text-stone-700 mb-6 border border-stone-200">
+                    <span class="w-2 h-2 rounded-full bg-brand-terracota"></span>
+                    Hambúrguer de Rua Artesanal & Local
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl font-black text-stone-900 leading-[1.1] mb-6 tracking-tight">
+                    Carne no ponto, <br>
+                    pão tostado e <span class="text-brand-terracota underline decoration-brand-mustard decoration-wavy decoration-2">queijo derretido.</span>
+                </h1>
+
+                <p class="text-stone-600 text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                    Sem gourmetização desnecessária. Selecionamos cortes frescos de Angus, prensamos com crosta ultra crocante e montamos no brioche dourado na manteiga.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#cardapio" class="w-full sm:w-auto px-8 py-4 bg-brand-terracota hover:bg-stone-900 text-white font-black rounded-2xl text-sm transition duration-300 shadow-xl shadow-brand-terracota/20 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-arrow-down"></i> VER CARDÁPIO
+                    </a>
+                    <div class="flex items-center gap-3 px-4 py-3 bg-white rounded-2xl border border-stone-200 shadow-sm">
+                        <span class="text-amber-500 text-sm font-bold flex gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="text-xs font-semibold text-stone-700">4.9/5 (+800 pedidos)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna de Imagem Recortada em Destaque (Direita) -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto max-w-[380px] lg:max-w-none">
+                    <!-- Fundo Geométrico Decorativo -->
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-mustard/20 to-brand-terracota/20 rounded-[2.5rem] transform rotate-3"></div>
+                    
+                    <!-- Foto em Destaque Clara e Nítida -->
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-square">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" 
+                             alt="Smash Burger Artesanal Suculento" 
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Badge Flutuante -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-stone-200 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-surface flex items-center justify-center text-brand-terracota font-black text-xl">
+                            🔥
+                        </div>
+                        <div>
+                            <span class="block text-xs font-black text-stone-900 uppercase">Chapa a 250°C</span>
+                            <span class="block text-[11px] text-stone-500 font-medium">Crosta Maillard perfeita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDÁPIO EM FORMATO LISTA HORIZONTAL (ESTILO APP GOURMET) -->
+    <section id="cardapio" class="py-20 px-4 bg-white border-t border-b border-stone-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-terracota font-extrabold mb-1 block">Cardápio do Dia</span>
+                    <h2 class="text-3xl font-black text-stone-900">Nossas Criações</h2>
+                </div>
+                <p class="text-xs text-stone-500 mt-2 sm:mt-0">Toque no botão <b>+</b> para montar seu pedido</p>
+            </div>
+
+            <!-- Grade de Itens Horizontais -->
+            <div class="space-y-4">
+                
+                <!-- Item 1: Smash Duplo -->
+                <div class="bg-brand-base p-4 sm:p-5 rounded-2xl border border-stone-200/90 hover:border-brand-terracota/50 transition duration-200 flex items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 sm:gap-6">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0 border border-stone-200">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Smash Duplo com Queijo" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-extrabold text-stone-900 text-base sm:text-lg">Classic Double Smash</h3>
+                                <span class="text-[10px] bg-brand-mustard/20 text-brand-mustard font-black px-2 py-0.5 rounded-full uppercase">Top 1</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-stone-600 max-w-md line-clamp-2">2x carnes smash 80g na crostinha, double cheddar inglês, picles artesanal e maionese secreta da casa no brioche tostado.</p>
+                            <span class="block mt-2 font-black text-stone-900 text-base sm:text-lg">R$ 34,00</span>
+                        </div>
+                    </div>
+                    <button onclick="adicionarAoPedido('Classic Double Smash', 34)" class="w-11 h-11 rounded-xl bg-stone-900 hover:bg-brand-terracota text-white flex items-center justify-center font-bold text-lg shrink-0 transition shadow-md active:scale-95">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Item 2: Bacon Trufado -->
+                <div class="bg-brand-base p-4 sm:p-5 rounded-2xl border border-stone-200/90 hover:border-brand-terracota/50 transition duration-200 flex items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 sm:gap-6">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0 border border-stone-200">
+                            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Hambúrguer com Bacon e Queijo" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-extrabold text-stone-900 text-base sm:text-lg">Truffled Bacon Crisp</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-stone-600 max-w-md line-clamp-2">Hambúrguer alto 180g Angus, fatias crocantes de bacon artesanal defumado em lenha de macieira, creme de queijo trufado e cebola crispy.</p>
+                            <span class="block mt-2 font-black text-stone-900 text-base sm:text-lg">R$ 42,00</span>
+                        </div>
+                    </div>
+                    <button onclick="adicionarAoPedido('Truffled Bacon Crisp', 42)" class="w-11 h-11 rounded-xl bg-stone-900 hover:bg-brand-terracota text-white flex items-center justify-center font-bold text-lg shrink-0 transition shadow-md active:scale-95">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+                <!-- Item 3: Batata Rústica -->
+                <div class="bg-brand-base p-4 sm:p-5 rounded-2xl border border-stone-200/90 hover:border-brand-terracota/50 transition duration-200 flex items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4 sm:gap-6">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0 border border-stone-200">
+                            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Batatas Fritas Rústicas" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-extrabold text-stone-900 text-base sm:text-lg">Fritas Rústicas com Páprica</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-stone-600 max-w-md line-clamp-2">Batatas cortadas à mão, fritas duas vezes com casca, finalizadas com páprica defumada, alecrim fresco e maionese verde.</p>
+                            <span class="block mt-2 font-black text-stone-900 text-base sm:text-lg">R$ 20,00</span>
+                        </div>
+                    </div>
+                    <button onclick="adicionarAoPedido('Fritas Rústicas com Páprica', 20)" class="w-11 h-11 rounded-xl bg-stone-900 hover:bg-brand-terracota text-white flex items-center justify-center font-bold text-lg shrink-0 transition shadow-md active:scale-95">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSA HISTÓRIA / ESTILO EDITORIAL POLAROID -->
+    <section id="origem" class="py-24 px-4 bg-brand-surface/60">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Texto Simples e Direto -->
+            <div>
+                <span class="text-xs uppercase tracking-widest text-brand-terracota font-extrabold mb-2 block">Origem & Método</span>
+                <h2 class="text-3xl font-black text-stone-900 mb-6 leading-tight">
+                    Respeito pelo pão, obsessão pelo fogo.
+                </h2>
+                <p class="text-stone-700 text-sm leading-relaxed mb-4">
+                    O <strong>Bull & Bun</strong> começou em uma pequena bancada na calçada com uma única missão: fazer o hambúrguer que nós mesmos tínhamos vontade de comer no fim de semana.
+                </p>
+                <p class="text-stone-700 text-sm leading-relaxed mb-6">
+                    A gente não esconde ingredientes atrás de molho industrial. O brioche vem quentinho da padaria parceira do bairro toda manhã, e as carnes são moídas horas antes de ligar a chapa.
+                </p>
+                <div class="flex items-center gap-6">
+                    <div>
+                        <span class="block text-2xl font-black text-stone-900">100%</span>
+                        <span class="text-xs text-stone-500 font-bold uppercase">Carne Fresca</span>
+                    </div>
+                    <div class="border-l border-stone-300 pl-6">
+                        <span class="block text-2xl font-black text-stone-900">0%</span>
+                        <span class="text-xs text-stone-500 font-bold uppercase">Industrializados</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Imagem Estilo Enquadramento de Galeria -->
+            <div class="bg-white p-3 rounded-3xl shadow-xl border border-stone-200 rotate-1 hover:rotate-0 transition duration-300">
+                <div class="rounded-2xl overflow-hidden h-72">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80" 
+                         alt="Cozinheiro preparando hambúrguer" 
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="p-4 text-center">
+                    <p class="text-xs font-medium text-stone-600 italic">"Chapa estalando e ingredientes de verdade desde o primeiro dia."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RETIRADA, LOCALIZAÇÃO E REDES -->
+    <section id="retirada" class="py-20 px-4 bg-white border-t border-stone-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs uppercase tracking-widest text-brand-terracota font-extrabold mb-1 block">Onde Comer</span>
+            <h2 class="text-3xl font-black text-stone-900 mb-8">Passe Aqui ou Peça em Casa</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <!-- Card Endereço -->
+                <div class="bg-brand-base p-6 rounded-2xl border border-stone-200">
+                    <i class="fa-solid fa-location-dot text-brand-terracota text-xl mb-3"></i>
+                    <h4 class="font-bold text-stone-900 text-sm mb-1">Nosso Balcão</h4>
+                    <p class="text-xs text-stone-600 mb-4">Rua Augusta, 1020 - Centro Gastronômico</p>
+                    <a href="https://maps.google.com" target="_blank" class="text-xs font-bold text-brand-terracota hover:underline flex items-center gap-1">
+                        Abrir rota no Maps &rarr;
+                    </a>
+                </div>
+
+                <!-- Card Horário -->
+                <div class="bg-brand-base p-6 rounded-2xl border border-stone-200">
+                    <i class="fa-regular fa-clock text-brand-terracota text-xl mb-3"></i>
+                    <h4 class="font-bold text-stone-900 text-sm mb-1">Horário da Chapa</h4>
+                    <p class="text-xs text-stone-600 mb-1">Terça a Domingo</p>
+                    <p class="text-xs text-stone-600 font-semibold">18:00 às 23:45</p>
+                </div>
+
+                <!-- Card Instagram -->
+                <div class="bg-brand-base p-6 rounded-2xl border border-stone-200">
+                    <i class="fa-brands fa-instagram text-brand-terracota text-xl mb-3"></i>
+                    <h4 class="font-bold text-stone-900 text-sm mb-1">Siga no Instagram</h4>
+                    <p class="text-xs text-stone-600 mb-4">Veja os bastidores e novos lançamentos</p>
+                    <a href="https://instagram.com" target="_blank" class="text-xs font-bold text-brand-terracota hover:underline flex items-center gap-1">
+                        @bullandbun.burgers &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ CLEAN -->
+    <footer class="py-8 bg-stone-900 text-stone-400 text-xs text-center">
+        <p>© 2026 Bull & Bun Burgers. Feito artesanalmente.</p>
+        <p class="mt-3 text-center text-[10px] tracking-[0.2em] uppercase text-stone-400 font-medium">
+            Projeto Conceitual • Design e Desenvolvimento por <span class="text-brand-terracota font-semibold">Wallace Oppikofer</span>.
+        </p>
+    </footer>
+
+    <!-- BARRA FIXA DE CARRINHO / PEDIDO DINÂMICO (DARK PILL FLUTUANTE) -->
+    <div id="carrinhoFlutuante" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-xl bg-stone-900/95 backdrop-blur-md text-white p-3 sm:p-3.5 rounded-2xl shadow-2xl z-40 transform translate-y-36 opacity-0 transition-all duration-300 border border-stone-700/80">
+        <div class="flex items-center justify-between gap-3">
+            <div onclick="abrirModalSacola()" class="flex items-center gap-3 cursor-pointer group flex-1">
+                <div class="w-10 h-10 rounded-xl bg-brand-terracota text-white flex items-center justify-center font-black text-sm shadow-md group-hover:scale-105 transition shrink-0">
+                    <span id="carrinhoQtd">0</span>
+                </div>
+                <div>
+                    <span class="block text-[11px] text-stone-400 uppercase font-semibold flex items-center gap-1">
+                        <span>Ver Sacola</span>
+                        <i class="fa-solid fa-chevron-up text-[9px] text-brand-mustard"></i>
+                    </span>
+                    <span id="carrinhoTotal" class="block text-base font-black text-white">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <button onclick="esvaziarCarrinho()" class="text-[11px] text-stone-400 hover:text-white px-2 py-1.5 transition cursor-pointer">
+                    Limpar
+                </button>
+                <button onclick="abrirModalSacola()" class="bg-brand-terracota hover:bg-orange-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition shadow-md cursor-pointer active:scale-95">
+                    <span>Revisar Pedido</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL / DRAWER DA SACOLA INTELIGENTE (CHECKOUT DIRETO WHATSAPP) -->
+    <div id="modalSacola" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-stone-950/70 backdrop-blur-sm transition-opacity p-0 sm:p-4">
+        <div class="bg-white w-full sm:max-w-md max-h-[92vh] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-stone-200">
+            <!-- Topo do Modal -->
+            <div class="p-4 sm:p-5 border-b border-stone-200 bg-brand-base flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-9 h-9 rounded-xl bg-brand-terracota text-white flex items-center justify-center font-black text-base shadow-sm">
+                        🛍️
+                    </span>
+                    <div>
+                        <h3 class="font-black text-stone-900 text-base leading-tight">Sua Sacola Bull & Bun</h3>
+                        <p class="text-[11px] text-stone-500 font-medium">Revise seus itens e finalize o pedido</p>
+                    </div>
+                </div>
+                <button onclick="fecharModalSacola()" aria-label="Fechar" class="w-8 h-8 rounded-full bg-stone-200/80 hover:bg-stone-300 text-stone-700 flex items-center justify-center text-sm transition cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Conteúdo Rolável -->
+            <div class="p-4 sm:p-5 overflow-y-auto space-y-4 text-xs text-stone-800 flex-1">
+                <!-- LISTA DE ITENS -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-extrabold uppercase tracking-wider text-[11px] text-stone-500">Itens Selecionados</span>
+                        <button onclick="esvaziarCarrinho()" class="text-[11px] text-stone-400 hover:text-red-500 transition cursor-pointer">
+                            <i class="fa-regular fa-trash-can mr-1"></i>Esvaziar
+                        </button>
+                    </div>
+                    <div id="listaItensSacola" class="space-y-2">
+                        <!-- Itens renderizados via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- TIPO DE ATENDIMENTO: ENTREGA OU RETIRADA -->
+                <div class="border-t border-stone-200 pt-4">
+                    <span class="font-extrabold uppercase tracking-wider text-[11px] text-stone-500 block mb-2">Como deseja receber?</span>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button type="button" id="btnTipoEntrega" onclick="selecionarTipo('entrega')" class="p-3 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold flex flex-col items-center justify-center gap-1 transition cursor-pointer">
+                            <span class="text-base">🛵</span>
+                            <span class="text-xs">Entrega (Delivery)</span>
+                        </button>
+                        <button type="button" id="btnTipoRetirada" onclick="selecionarTipo('retirada')" class="p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium flex flex-col items-center justify-center gap-1 transition cursor-pointer hover:border-stone-300">
+                            <span class="text-base">🛍️</span>
+                            <span class="text-xs">Retirar no Balcão</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAMPOS DE ENDEREÇO (VISÍVEIS SE FOR ENTREGA) -->
+                <div id="camposEndereco" class="space-y-2">
+                    <div>
+                        <label class="block text-[11px] font-bold text-stone-700 mb-1">Rua e Número*</label>
+                        <input id="inputEnderecoRua" type="text" placeholder="Ex: Rua Augusta, 1020" class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[11px] font-bold text-stone-700 mb-1">Bairro*</label>
+                            <input id="inputEnderecoBairro" type="text" placeholder="Ex: Centro" class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-stone-700 mb-1">Complemento / Apto</label>
+                            <input id="inputEnderecoComp" type="text" placeholder="Ex: Apto 42" class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMA DE PAGAMENTO -->
+                <div class="border-t border-stone-200 pt-4">
+                    <span class="font-extrabold uppercase tracking-wider text-[11px] text-stone-500 block mb-2">Forma de Pagamento</span>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <button type="button" id="btnPagPix" onclick="selecionarPagamento('PIX')" class="p-2.5 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold text-center text-xs transition cursor-pointer">
+                            ⚡ PIX
+                        </button>
+                        <button type="button" id="btnPagCartao" onclick="selecionarPagamento('Cartão')" class="p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium text-center text-xs transition cursor-pointer hover:border-stone-300">
+                            💳 Cartão
+                        </button>
+                        <button type="button" id="btnPagDinheiro" onclick="selecionarPagamento('Dinheiro')" class="p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium text-center text-xs transition cursor-pointer hover:border-stone-300">
+                            💵 Dinheiro
+                        </button>
+                    </div>
+                    <div id="campoTroco" class="hidden mt-2">
+                        <input id="inputTroco" type="text" placeholder="Precisa de troco para quanto? (Ex: R$ 50)" class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                    </div>
+                </div>
+
+                <!-- SEUS DADOS & OBSERVAÇÕES -->
+                <div class="border-t border-stone-200 pt-4 space-y-2">
+                    <div>
+                        <label class="block text-[11px] font-bold text-stone-700 mb-1">Seu Nome*</label>
+                        <input id="inputNomeCliente" type="text" placeholder="Como podemos te chamar?" class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-stone-700 mb-1">Observações do Pedido (Opcional)</label>
+                        <input id="inputObservacoes" type="text" placeholder="Ex: 1 sem picles, carne ao ponto..." class="w-full bg-brand-base border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-terracota">
+                    </div>
+                </div>
+
+                <!-- RESUMO DE VALORES -->
+                <div class="border-t border-stone-200 pt-3 bg-brand-surface/50 p-3.5 rounded-xl space-y-1 text-xs">
+                    <div class="flex justify-between text-stone-600">
+                        <span>Subtotal dos itens</span>
+                        <span id="resumoSubtotal" class="font-bold text-stone-900">R$ 0,00</span>
+                    </div>
+                    <div class="flex justify-between text-stone-600 text-[11px]">
+                        <span>Taxa de Entrega</span>
+                        <span id="resumoTaxa" class="text-stone-500 font-medium">A combinar no WhatsApp</span>
+                    </div>
+                    <div class="flex justify-between text-stone-900 font-black text-sm pt-2 border-t border-stone-200">
+                        <span>Total dos Itens</span>
+                        <span id="resumoTotal" class="text-brand-terracota">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé Fixo do Modal -->
+            <div class="p-4 bg-white border-t border-stone-200 flex flex-col gap-2 shrink-0">
+                <button onclick="enviarPedidoFinalWhatsApp()" class="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-stone-950 font-black rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/20 cursor-pointer">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>ENVIAR PEDIDO NO WHATSAPP</span>
+                </button>
+                <span class="text-[10px] text-stone-400 text-center flex items-center justify-center gap-1 font-medium">
+                    <i class="fa-solid fa-shield-halved text-emerald-600"></i> Pedido direto com a cozinha • Sem taxas extras
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST DE NOTIFICAÇÃO RÁPIDA -->
+    <div id="toastAdicionado" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-stone-900 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl border border-stone-700 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <span class="text-emerald-400 font-bold">✓</span>
+        <span id="toastTexto">Item adicionado!</span>
+    </div>
+
+    <!-- SCRIPT DA SACOLA INTELIGENTE & PEDIDO DIRETO WHATSAPP -->
+    <script>
+        // Estrutura da Sacola: { 'Nome': { nome, preco, qtd } }
+        let sacola = {};
+        let tipoAtendimento = 'entrega'; // 'entrega' ou 'retirada'
+        let formaPagamento = 'PIX';      // 'PIX', 'Cartão' ou 'Dinheiro'
+        const NUMERO_WHATSAPP = '5511999999999';
+
+        function adicionarAoPedido(nome, preco) {
+            if (sacola[nome]) {
+                sacola[nome].qtd += 1;
+            } else {
+                sacola[nome] = { nome, preco, qtd: 1 };
+            }
+            atualizarVisualCarrinho();
+            mostrarToast(`${nome} adicionado!`);
+        }
+
+        function alterarQtd(nome, delta) {
+            if (!sacola[nome]) return;
+            sacola[nome].qtd += delta;
+            if (sacola[nome].qtd <= 0) {
+                delete sacola[nome];
+            }
+            atualizarVisualCarrinho();
+            renderizarItensSacola();
+        }
+
+        function removerItem(nome) {
+            if (sacola[nome]) {
+                delete sacola[nome];
+                atualizarVisualCarrinho();
+                renderizarItensSacola();
+            }
+        }
+
+        function esvaziarCarrinho() {
+            sacola = {};
+            atualizarVisualCarrinho();
+            fecharModalSacola();
+        }
+
+        function calcularTotal() {
+            return Object.values(sacola).reduce((acc, item) => acc + (item.preco * item.qtd), 0);
+        }
+
+        function calcularQtdTotal() {
+            return Object.values(sacola).reduce((acc, item) => acc + item.qtd, 0);
+        }
+
+        function atualizarVisualCarrinho() {
+            const barra = document.getElementById('carrinhoFlutuante');
+            const qtdEl = document.getElementById('carrinhoQtd');
+            const totalEl = document.getElementById('carrinhoTotal');
+
+            const totalQtd = calcularQtdTotal();
+            const totalValor = calcularTotal();
+
+            if (totalQtd > 0) {
+                barra.classList.remove('translate-y-36', 'opacity-0');
+            } else {
+                barra.classList.add('translate-y-36', 'opacity-0');
+            }
+
+            if (qtdEl) qtdEl.innerText = totalQtd;
+            if (totalEl) totalEl.innerText = `R$ ${totalValor.toFixed(2).replace('.', ',')}`;
+        }
+
+        function abrirModalSacola() {
+            if (calcularQtdTotal() === 0) {
+                mostrarToast('Sua sacola está vazia! Adicione um lanche.');
+                return;
+            }
+            renderizarItensSacola();
+            const modal = document.getElementById('modalSacola');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModalSacola() {
+            const modal = document.getElementById('modalSacola');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function renderizarItensSacola() {
+            const container = document.getElementById('listaItensSacola');
+            const itens = Object.values(sacola);
+
+            if (itens.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6 text-stone-400">
+                        <p class="text-xs">Sua sacola está vazia.</p>
+                    </div>
+                `;
+                fecharModalSacola();
+                return;
+            }
+
+            container.innerHTML = itens.map(item => `
+                <div class="flex items-center justify-between bg-brand-base p-2.5 rounded-xl border border-stone-200">
+                    <div class="flex-1 pr-2">
+                        <h4 class="font-bold text-stone-900 text-xs">${item.nome}</h4>
+                        <span class="text-[11px] text-stone-500">R$ ${item.preco},00 un.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center bg-white rounded-lg border border-stone-200">
+                            <button onclick="alterarQtd('${item.nome}', -1)" class="w-6 h-6 flex items-center justify-center text-stone-600 hover:text-stone-900 font-bold transition">
+                                -
+                            </button>
+                            <span class="w-6 text-center font-bold text-stone-900 text-xs">${item.qtd}</span>
+                            <button onclick="alterarQtd('${item.nome}', 1)" class="w-6 h-6 flex items-center justify-center text-stone-600 hover:text-stone-900 font-bold transition">
+                                +
+                            </button>
+                        </div>
+                        <span class="font-extrabold text-stone-900 text-xs w-16 text-right">R$ ${(item.preco * item.qtd).toFixed(2).replace('.', ',')}</span>
+                        <button onclick="removerItem('${item.nome}')" class="text-stone-400 hover:text-red-500 p-1 transition" title="Remover item">
+                            <i class="fa-regular fa-trash-can text-[11px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            const total = calcularTotal();
+            const totalFormatado = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            document.getElementById('resumoSubtotal').innerText = totalFormatado;
+            document.getElementById('resumoTotal').innerText = totalFormatado;
+        }
+
+        function selecionarTipo(tipo) {
+            tipoAtendimento = tipo;
+            const btnEntrega = document.getElementById('btnTipoEntrega');
+            const btnRetirada = document.getElementById('btnTipoRetirada');
+            const camposEndereco = document.getElementById('camposEndereco');
+            const resumoTaxa = document.getElementById('resumoTaxa');
+
+            if (tipo === 'entrega') {
+                btnEntrega.className = "p-3 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold flex flex-col items-center justify-center gap-1 transition cursor-pointer";
+                btnRetirada.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium flex flex-col items-center justify-center gap-1 transition cursor-pointer hover:border-stone-300";
+                camposEndereco.classList.remove('hidden');
+                resumoTaxa.innerText = "A combinar no WhatsApp";
+            } else {
+                btnRetirada.className = "p-3 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold flex flex-col items-center justify-center gap-1 transition cursor-pointer";
+                btnEntrega.className = "p-3 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium flex flex-col items-center justify-center gap-1 transition cursor-pointer hover:border-stone-300";
+                camposEndereco.classList.add('hidden');
+                resumoTaxa.innerText = "Grátis (Retirada no Balcão)";
+            }
+        }
+
+        function selecionarPagamento(forma) {
+            formaPagamento = forma;
+            const btnPix = document.getElementById('btnPagPix');
+            const btnCartao = document.getElementById('btnPagCartao');
+            const btnDinheiro = document.getElementById('btnPagDinheiro');
+            const campoTroco = document.getElementById('campoTroco');
+
+            [btnPix, btnCartao, btnDinheiro].forEach(b => {
+                b.className = "p-2.5 rounded-xl border-2 border-stone-200 bg-white text-stone-600 font-medium text-center text-xs transition cursor-pointer hover:border-stone-300";
+            });
+
+            if (forma === 'PIX') {
+                btnPix.className = "p-2.5 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold text-center text-xs transition cursor-pointer";
+                campoTroco.classList.add('hidden');
+            } else if (forma === 'Cartão') {
+                btnCartao.className = "p-2.5 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold text-center text-xs transition cursor-pointer";
+                campoTroco.classList.add('hidden');
+            } else if (forma === 'Dinheiro') {
+                btnDinheiro.className = "p-2.5 rounded-xl border-2 border-brand-terracota bg-brand-terracota/5 text-stone-900 font-bold text-center text-xs transition cursor-pointer";
+                campoTroco.classList.remove('hidden');
+            }
+        }
+
+        function mostrarToast(mensagem) {
+            const toast = document.getElementById('toastAdicionado');
+            const texto = document.getElementById('toastTexto');
+            if (texto) texto.innerText = mensagem;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 1800);
+        }
+
+        function enviarPedidoFinalWhatsApp() {
+            const itens = Object.values(sacola);
+            if (itens.length === 0) {
+                alert('Sua sacola está vazia.');
+                return;
+            }
+
+            const nome = document.getElementById('inputNomeCliente').value.trim() || 'Cliente';
+            const obs = document.getElementById('inputObservacoes').value.trim();
+
+            let dadosEntrega = '';
+            if (tipoAtendimento === 'entrega') {
+                const rua = document.getElementById('inputEnderecoRua').value.trim();
+                const bairro = document.getElementById('inputEnderecoBairro').value.trim();
+                const comp = document.getElementById('inputEnderecoComp').value.trim();
+
+                if (!rua || !bairro) {
+                    alert('Por favor, informe a Rua e o Bairro para a entrega!');
+                    document.getElementById('inputEnderecoRua').focus();
+                    return;
+                }
+                dadosEntrega = `📦 *Tipo:* 🛵 Entrega em Domicílio\n📍 *Endereço:* ${rua} - ${bairro}${comp ? ` (${comp})` : ''}`;
+            } else {
+                dadosEntrega = `📦 *Tipo:* 🛍️ Retirada no Balcão (Balcão Bull & Bun)`;
+            }
+
+            let infoPagamento = formaPagamento;
+            if (formaPagamento === 'Dinheiro') {
+                const troco = document.getElementById('inputTroco').value.trim();
+                infoPagamento += troco ? ` (Troco para ${troco})` : ' (Não precisa de troco)';
+            }
+
+            let resumoItens = '';
+            itens.forEach(item => {
+                resumoItens += `• ${item.qtd}x ${item.nome} (R$ ${(item.preco * item.qtd).toFixed(2).replace('.', ',')})\n`;
+            });
+
+            const total = calcularTotal();
+            const totalFormatado = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            let textoFinal = 
+`🍔 *NOVO PEDIDO • BULL & BUN BURGERS* 🍔
+━━━━━━━━━━━━━━━━━━━━━━
+👤 *Cliente:* ${nome}
+${dadosEntrega}
+💳 *Pagamento:* ${infoPagamento}
+━━━━━━━━━━━━━━━━━━━━━━
+🛒 *ITENS DO PEDIDO:*
+${resumoItens.trim()}` + (obs ? `\n📝 *Observações:* ${obs}` : '') + `
+━━━━━━━━━━━━━━━━━━━━━━
+💰 *TOTAL DOS ITENS:* ${totalFormatado}
+━━━━━━━━━━━━━━━━━━━━━━
+👉 _Olá! Acabei de montar meu pedido pelo cardápio do site. Poderiam me confirmar o recebimento e o tempo estimado?_`;
+
+            const linkZap = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(textoFinal)}`;
+            window.open(linkZap, '_blank');
+        }
+    </script>
+</body>
+</html>
